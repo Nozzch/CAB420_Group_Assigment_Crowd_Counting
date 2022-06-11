@@ -35,7 +35,6 @@ def load_preprocessed_data():
     with open(os.path.join('data//pickles//test//test_y.pkl'), 'rb') as file:
         test_y = pickle.load(file)
 
-    print(test_y)
     return train_x, train_y, val_x, val_y, test_x, train_y
     
 
@@ -80,5 +79,3 @@ def load_and_process_data():
             pickle.dump(y, file)
             
 
-load_and_process_data()
-print("done!")
