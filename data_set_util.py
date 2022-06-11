@@ -64,7 +64,7 @@ def load_and_process_data():
 
             rgbt = np.concatenate([rgb, gray.reshape(gray.shape[0],gray.shape[1],1)], axis=2)
 
-            if rgbt.shape == (480, 640, 4):
+            if rgbt.shape == (640, 480, 4):
                 rgbt = np.transpose(rgbt, axes=[1,0,2])
 
             x.append(rgbt)
