@@ -63,9 +63,16 @@ def load_and_process_data():
             gray = cv2.cvtColor(t, cv2.COLOR_BGR2GRAY)
 
             rgbt = np.concatenate([rgb, gray.reshape(gray.shape[0],gray.shape[1],1)], axis=2)
+
+            if rgbt.shape == (480, 640, 4):
+                rgbt = np.transpose(rgbt, axes=[1,0,2])
+
             x.append(rgbt)
             y.append(count)
         
+        x = np.stack(x, axis=0)
+
+
 
         with open(os.path.join(sub_save_dir, f'{phase}_x.pkl'), 'wb') as file:
             pickle.dump(x, file)
