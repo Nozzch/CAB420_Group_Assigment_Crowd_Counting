@@ -15,7 +15,7 @@ def generate_data(label_path):
     im_h, im_w, _ = rgb.shape
     with open(label_path, 'r') as f:
         label_file = json.load(f)
-    count = np.asarray(label_file['count'])
+    count = label_file['count']
     return rgb, t, count
 
 def load_preprocessed_data():
@@ -73,9 +73,5 @@ def load_and_process_data():
             pickle.dump(y, file)
             
 
-
-
 load_and_process_data()
-load_preprocessed_data()
-
 print("done!")
